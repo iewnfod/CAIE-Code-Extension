@@ -1,0 +1,92 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "CAIE-Pseudocode",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#data_types"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#ops"
+		},
+		{
+			"include": "#numbers"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.cpc",
+				"match": "\\b(CONSTANT|DECLARE|FOR|TO|STEP|NEXT|TYPE|ENDTYPE|INPUT|OUTPUT|IF|THEN|ELSE|ENDIF|CASE|OF|OTHERWISE|ENDCASE|REPEAT|UNTIL|WHILE|ENDWHILE|PROCEDURE|ENDPROCEDURE|CALL|FUNCTION|ENDFUNCTION|PRIVATE|PUBLIC|AND|OR|NOT|NEW|CLASS|INHERITS|ARRAY|RETURNS|RETURN|OPENFILE|READ|WRITE|APPEND|READFILE|WRITEFILE|CLOSEFILE|SEEK|GETRECORD|PUTRECORD|RANDOM|BYREF|BYVAL)\\b"
+			}]
+		},
+		"constants": {
+			"patterns": [{
+				"name": "constant.language.cpc",
+				"match": "\\b(TRUE|FALSE)\\b"
+			}]
+		},
+		"data_types": {
+			"patterns": [{
+				"name": "storage.type.cpc",
+				"match": "\\b(INTEGER|REAL|BOOLEAN|CHAR|STRING|ARRAY)\\b"
+			}]
+		},
+		"strings": {
+			"patterns": [{
+				"name": "string.quoted.double.cpc",
+				"begin": "\"",
+				"end": "\""
+			},
+			{
+				"name": "string.quoted.single.cpc",
+				"begin": "'",
+				"end": "'"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.cpc",
+				"begin": "//",
+				"end": "$"
+			}]
+		},
+		"variables": {
+			"patterns": [{
+				"name": "variable.name.cpc",
+				"match": "\\b[a-zA-Z_][a-zA-Z_0-9]*\\b"
+			}]
+		},
+		"ops": {
+			"patterns": [{
+				"name": "keyword.operator.cpc",
+				"match": "\\b(\\+|\\-|\\*|\\/|\\&|<-|:|<|>|<=|>=|<>|=|AND|OR|NOT)\\b"
+			}]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric.integer.cpc",
+				"match": "\\b[0-9]+\\b"
+			},
+			{
+				"name": "constant.numeric.real.cpc",
+				"match": "\\b[0-9]*\\.[0-9]+"
+			}]
+		}
+	},
+	"scopeName": "source.cpc"
+}

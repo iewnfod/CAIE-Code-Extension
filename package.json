@@ -1,0 +1,52 @@
+{
+  "name": "caie-code-extension",
+  "displayName": "CAIE_Code_Extension",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "cpc",
+        "aliases": [
+          "CAIE-Pseudocode",
+          "cpc"
+        ],
+        "extensions": [
+          ".cpc",
+          ".p"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cpc",
+        "scopeName": "source.cpc",
+        "path": "./syntaxes/cpc.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "cpc",
+        "path": "./snippets/cpc.json"
+      }
+    ],
+    "properties": {
+      "caie-code-extension.sdk-path": {
+        "type": "string",
+        "default": "~/CAIE_Code"
+      }
+    }
+  },
+  "dependencies": {
+    "path": "^0.12.7",
+    "vscode": "^1.1.37",
+    "vscode-languageclient": "^8.1.0"
+  }
+}
