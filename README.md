@@ -1,6 +1,6 @@
-# CAIE-Code-Extension README
+# caie-pseudocode-language-support README
 
-This is the README for your extension "CAIE-Code-Extension". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "caie-pseudocode-language-support". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 
