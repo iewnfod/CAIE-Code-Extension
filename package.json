@@ -1,13 +1,16 @@
 {
-  "name": "caie-pseudocode",
+  "name": "cpc-interpreter-extension",
   "displayName": "CAIE Pseudocode",
   "description": "A VSCode language support extension of CAIE PseudoCode",
   "version": "0.0.1",
-  "publisher": "CreatechStudio Shanghai Inc.",
+  "publisher": "CreatechStudioShanghaiInc",
   "main": "./src/extension.ts",
   "engines": {
     "vscode": "^1.83.0"
   },
+  "activationEvents": [
+    "onCommand:extension.activate"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/iewnfod/CAIE-Code-Extension"
@@ -72,7 +75,7 @@
         {
           "command": "cpc.run",
           "group": "navigation",
-          "when": "resourceLangId == pseudocode"
+          "when": "resourceLangId == cpc"
         }
       ]
     },
@@ -94,10 +97,10 @@
     "fs": "^0.0.1-security",
     "micromatch": "^4.0.5",
     "os": "^0.1.2",
-    "path": "^0.12.7",
-    "vscode": "^1.1.37"
+    "path": "^0.12.7"
   },
   "devDependencies": {
+    "vscode": "^1.1.37",
     "@types/node": "^20.8.10",
     "@types/vscode": "^1.83.2"
   }
