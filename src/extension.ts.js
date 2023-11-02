@@ -11,10 +11,11 @@ function activate(context) {
         const editor = vscode.window.activeTextEditor;
         const commandHandler = () => {
             if (editor) {
-                const document = editor.document;
-                const filePath = document.uri.fsPath;
+                const filePath = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.document.uri.fsPath : undefined;
+                let fileUri = filePath;
+                const decodedFilePath = fileUri ? decodeURI(fileUri) : undefined;
                 const terminal = vscode.window.createTerminal('CPC Interpreter');
-                terminal.sendText(`${interpreterPath} "${filePath}"`);
+                terminal.sendText(`${interpreterPath} "${decodedFilePath}"`);
                 terminal.show();
             }
         };
