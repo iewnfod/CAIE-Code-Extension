@@ -15,3 +15,4 @@
         }
     ]
 }
+// A launch configuration that compiles the extension and then opens it inside a new window

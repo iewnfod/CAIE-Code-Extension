@@ -7,6 +7,9 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#declarations"
 		}
 	],
 	"repository": {
@@ -14,7 +17,12 @@
 			"patterns": [{
 				"name": "keyword.control.cpc",
 				"match": "\\b(if|while|for|return)\\b"
-			}]
+			},
+			{
+				"name": "keyword.declaration.cpc",
+    			"match": "\\b(DECLARE)\\b"
+			}
+		]
 		},
 		"strings": {
 			"name": "string.quoted.double.cpc",
@@ -27,6 +35,27 @@
 				}
 			]
 		}
+	},
+	"declarations": {
+		"name": "variable.declaration.cpc",
+		"begin": "\\b(DECLARE)\\s+",
+		"end": "\\s*:",
+		"patterns": [
+			{
+				"include": "#variables"
+			},
+			{
+				"include": "#data_types"
+			}
+		]
+	},
+	"variables": {
+		"name": "variable.name.cpc",
+		"match": "\\w+"
+	},
+	"data_types": {
+		"name": "data_type.cpc",
+		"match": "\\b(INTEGER|FLOAT|BOOLEAN)\\b"
 	},
 	"scopeName": "source.cpc"
 }

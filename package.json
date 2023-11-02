@@ -1,25 +1,103 @@
 {
-  "name": "caie-pseudocode-language-support",
-  "displayName": "CAIE Pseudocode Language Support",
+  "name": "caie-pseudocode",
+  "displayName": "CAIE Pseudocode",
   "description": "A VSCode language support extension of CAIE PseudoCode",
   "version": "0.0.1",
+  "publisher": "CreatechStudio Shanghai Inc.",
+  "main": "./src/extension.ts",
   "engines": {
     "vscode": "^1.83.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iewnfod/CAIE-Code-Extension"
   },
   "categories": [
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "cpc",
-      "aliases": ["CAIE PseudoCode", "cpc"],
-      "extensions": [".cpc"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "cpc",
-      "scopeName": "source.cpc",
-      "path": "./syntaxes/cpc.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "cpc",
+        "aliases": [
+          "CAIE PseudoCode",
+          "cpc"
+        ],
+        "extensions": [
+          ".cpc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cpc",
+        "scopeName": "source.cpc",
+        "path": "./syntaxes/cpc.tmLanguage.json"
+      }
+    ],
+    "taskDefinitions": [
+      {
+          "type": "cpc"
+      }
+    ],
+    "commands": [
+        {
+            "command": "cpc.run",
+            "title": "Run Code",
+            "icon": "$(play)"
+        },
+        {
+            "command": "cpc.update",
+            "title": "Update Runtime Support",
+            "icon": "$(update)"
+        }
+    ],
+    "keybindings": [
+        {
+            "command": "cpc.run",
+            "key": "f5",
+            "mac": "f5",
+            "when": "resourceLangId == cpc"
+        },
+        {
+            "command": "cpc.update",
+            "key": "f8",
+            "mac": "f8",
+            "when": "resourceLangId == cpc"
+        }
+    ],
+    "menus": {
+        "editor/title/run": [
+            {
+                "command": "cpc.run",
+                "group": "navigation",
+                "when": "resourceLangId == pseudocode"
+            }
+        ]
+    },
+    "configuration": [
+      {
+        "type": "object",
+        "title": "CAIE PseudoCode Configuration",
+        "properties": {
+          "myCpcConfig.interpreterPath": {
+            "type": "string",
+            "default": "cpc",
+            "description": "Path to the CPC interpreter"
+          }
+        }
+      }
+    ]
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "micromatch": "^4.0.5",
+    "os": "^0.1.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "vscode": "^1.1.37",
+    "@types/node": "^20.8.10"
   }
 }
