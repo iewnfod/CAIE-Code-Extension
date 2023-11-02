@@ -2,8 +2,10 @@ const vscode = require('vscode');
 
 function activate(context) {
     console.log("Extension activated");
-    const config = vscode.workspace.getConfiguration("CAIE PseudoCode");
-    const interpreterPath = config.get("myCpcConfig.interpreterPath") || "cpc";
+    const interpreterPathConfig = vscode.workspace.getConfiguration("myCpcConfig");
+    const interpreterPath = interpreterPathConfig.get("interpreterPath") || "cpc";
+    // console.log(interpreterPathConfig);
+    // console.log(interpreterPath);
     executeCurrentFile(context);
     registerUpdate(context);
 
