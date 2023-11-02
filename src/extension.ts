@@ -1,14 +1,13 @@
-import * as vscode from 'vscode';
+const vscode = require('vscode');
 
-
-export function activate(context: vscode.ExtensionContext) {
+function activate(context) {
     console.log("Extension activated");
     const config = vscode.workspace.getConfiguration("CAIE PseudoCode");
     const interpreterPath = config.get("myCpcConfig.interpreterPath") || "cpc";
-    executeCurrentFile(context)
-    registerUpdate(context)
+    executeCurrentFile(context);
+    registerUpdate(context);
 
-    function executeCurrentFile(context: vscode.ExtensionContext) {
+    function executeCurrentFile(context) {
         const command = 'cpc.run';
         const editor = vscode.window.activeTextEditor;
         const commandHandler = () => {
@@ -23,19 +22,23 @@ export function activate(context: vscode.ExtensionContext) {
         context.subscriptions.push(vscode.commands.registerCommand(command, commandHandler));
     }
 
-    function registerUpdate(context: vscode.ExtensionContext) {
-
+    function registerUpdate(context) {
         const command = 'cpc.update';
         const commandHandler = () => {
             const terminal = vscode.window.createTerminal('CPC Interpreter');
             terminal.sendText(`${interpreterPath} -u`);
             terminal.show();
         };
-    
+
         context.subscriptions.push(vscode.commands.registerCommand(command, commandHandler));
     }
 }
 
-export function deactivate() {
+function deactivate() {
 
 }
+
+module.exports = {
+    activate,
+    deactivate
+};

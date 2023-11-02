@@ -38,43 +38,43 @@
     ],
     "taskDefinitions": [
       {
-          "type": "cpc"
+        "type": "cpc"
       }
     ],
     "commands": [
-        {
-            "command": "cpc.run",
-            "title": "Run Code",
-            "icon": "$(play)"
-        },
-        {
-            "command": "cpc.update",
-            "title": "Update Runtime Support",
-            "icon": "$(update)"
-        }
+      {
+        "command": "cpc.run",
+        "title": "Run Code",
+        "icon": "$(play)"
+      },
+      {
+        "command": "cpc.update",
+        "title": "Update Runtime Support",
+        "icon": "$(update)"
+      }
     ],
     "keybindings": [
-        {
-            "command": "cpc.run",
-            "key": "f5",
-            "mac": "f5",
-            "when": "resourceLangId == cpc"
-        },
-        {
-            "command": "cpc.update",
-            "key": "f8",
-            "mac": "f8",
-            "when": "resourceLangId == cpc"
-        }
+      {
+        "command": "cpc.run",
+        "key": "f5",
+        "mac": "f5",
+        "when": "resourceLangId == cpc"
+      },
+      {
+        "command": "cpc.update",
+        "key": "f8",
+        "mac": "f8",
+        "when": "resourceLangId == cpc"
+      }
     ],
     "menus": {
-        "editor/title/run": [
-            {
-                "command": "cpc.run",
-                "group": "navigation",
-                "when": "resourceLangId == pseudocode"
-            }
-        ]
+      "editor/title/run": [
+        {
+          "command": "cpc.run",
+          "group": "navigation",
+          "when": "resourceLangId == pseudocode"
+        }
+      ]
     },
     "configuration": [
       {
@@ -94,10 +94,11 @@
     "fs": "^0.0.1-security",
     "micromatch": "^4.0.5",
     "os": "^0.1.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "vscode": "^1.1.37"
   },
   "devDependencies": {
-    "vscode": "^1.1.37",
-    "@types/node": "^20.8.10"
+    "@types/node": "^20.8.10",
+    "@types/vscode": "^1.83.2"
   }
 }
