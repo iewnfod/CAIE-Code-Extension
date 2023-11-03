@@ -58,8 +58,8 @@
         ],
         "body": [
             "CASE OF ${1:identifier}",
-            "\t${2:case1} : ${3:statement};",
-            "OTHERWISE : ${4:other case};",
+            "\t${2:case} : ${3:statements};",
+            "\tOTHERWISE : ${4:other case};",
             "ENDCASE"
         ],
         "description": "A case statement."
@@ -101,15 +101,6 @@
             "DECLARE ${1:identifier} : ARRAY[${3:dimensions}] OF ${2:type}"
         ],
         "description": "Declare an array."
-    },
-    "Declare Set": {
-        "prefix": [
-            "DECLARESET"
-        ],
-        "body": [
-            "DECLARE ${1:identifier} : SET OF ${2:type}"
-        ],
-        "description": "Declare an set."
     },
     "Output": {
         "prefix": [
@@ -293,7 +284,7 @@
             "EXIT"
         ],
         "body": [
-            "EXIT ${1:code}"
+            "EXIT(${1:code})"
         ],
         "description": "Exit the program with a int code."
     },
@@ -320,8 +311,28 @@
             "IMPORT"
         ],
         "body": [
-            "CONSTANT ${1:module_name} = Import(\"${2:module_path}\")"
+            "CONSTANT ${1:module name} = Import(\"${2:module path}\")"
         ],
-        "description": "Import module"
+        "description": "Import a module."
+    },
+    "Type": {
+        "prefix": [
+            "TYPE"
+        ],
+        "body": [
+            "TYPE ${1:id}",
+            "\t$0",
+            "ENDTYPE"
+        ],
+        "description": "A type statement."
+    },
+    "Sort": {
+        "prefix": [
+            "Sort"
+        ],
+        "body": [
+            "Sort(${1:array}, ${2:start index}, ${3:end index})"
+        ],
+        "description": "Build-in sort function."
     }
 }
