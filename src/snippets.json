@@ -322,6 +322,6 @@
         "body": [
             "CONSTANT ${1:module_name} = Import(\"${2:module_path}\")"
         ],
-        "description": "import module"
+        "description": "Import module"
     }
 }
