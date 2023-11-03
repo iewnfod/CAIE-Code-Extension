@@ -2,7 +2,7 @@
   "name": "cpc-interpreter-extension",
   "displayName": "CAIE Pseudocode",
   "description": "A VSCode language support extension of CAIE PseudoCode",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "CreatechStudioShanghaiInc",
   "icon": "icon.png",
   "main": "./src/extension.ts",
@@ -40,6 +40,12 @@
         "path": "./syntaxes/cpc.tmLanguage.json"
       }
     ],
+    "snippets": [
+      {
+          "language": "cpc",
+          "path": "./src/snippets.json"
+      }
+  ],
     "taskDefinitions": [
       {
         "type": "cpc"
@@ -88,7 +94,7 @@
           "myCpcConfig.interpreterPath": {
             "type": "string",
             "default": "cpc",
-            "description": "Path to the CPC interpreter"
+            "description": "Path to the CPC interpreter, Please reboot VSCode after changing this setting."
           }
         }
       }

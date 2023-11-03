@@ -1,0 +1,85 @@
+{
+    "For Loop": {
+        "prefix": [
+            "FOR"
+        ],
+        "body": [
+            "FOR ${3:element} <- ${1:start} TO ${2:end}",
+            "\t$0",
+            "NEXT $3"
+        ],
+        "description": "A for loop."
+    },
+    "If": {
+        "prefix": [
+            "IF"
+        ],
+        "body": [
+            "IF ${1:condition} THEN",
+            "\t$0",
+            "ENDIF"
+        ],
+        "description": "An if statement"
+    },
+    "For Loop With Step": {
+        "prefix": [
+            "FORSTEP"
+        ],
+        "body": [
+            "FOR ${4:element} <- ${1:start} TO ${2:end} STEP ${3:step}",
+            "\t$0",
+            "NEXT $4"
+        ],
+        "description": "A for loop with step."
+    },
+    "While": {
+        "prefix": [
+            "WHILE"
+        ],
+        "body": [
+            "WHILE ${1:condition} DO",
+            "\t$0",
+            "ENDWHILE"
+        ],
+        "description": "A while loop."
+    },
+    "Repeat": {
+        "prefix": [
+            "REPEAT"
+        ],
+        "body": [
+            "REPEAT",
+            "\t$0",
+            "UNTIL ${1:condition}"
+        ],
+        "description": "A repeat-until loop."
+    },
+    "Declare": {
+        "prefix": [
+            "DECLARE"
+        ],
+        "body": [
+            "DECLARE ${1:identifier} : ${2:type}"
+        ],
+        "description": "Declare a variable."
+    },
+    "Declare Array": {
+        "prefix": [
+            "DECLAREARRAY"
+        ],
+        "body": [
+            "DECLARE ${1:identifier} : ARRAY[${3:dimensions}] OF ${2:type}"
+        ],
+        "description": "Declare an array."
+    },
+    "Declare Set": {
+        "prefix": [
+            "DECLARESET"
+        ],
+        "body": [
+            "DECLARE ${1:identifier} : SET OF ${2:type}"
+        ],
+        "description": "Declare an set."
+    }
+
+}
