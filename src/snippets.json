@@ -43,6 +43,27 @@
         ],
         "description": "A while loop."
     },
+    "Pass": {
+        "prefix": [
+            "PASS"
+        ],
+        "body": [
+            "PASS"
+        ],
+        "description": "Do nothing."
+    },
+    "Case": {
+        "prefix": [
+            "CASE"
+        ],
+        "body": [
+            "CASE OF ${1:identifier}",
+            "\t${2:case1} : ${3:statement};",
+            "OTHERWISE : ${4:other case};",
+            "ENDCASE"
+        ],
+        "description": "A case statement."
+    },
     "Repeat": {
         "prefix": [
             "REPEAT"
@@ -63,6 +84,15 @@
         ],
         "description": "Declare a variable."
     },
+    "Delete": {
+        "prefix": [
+            "DELETE"
+        ],
+        "body": [
+            "DELETE ${1:identifier}"
+        ],
+        "description": "Delete a variable."
+    },
     "Declare Array": {
         "prefix": [
             "DECLAREARRAY"
@@ -80,6 +110,218 @@
             "DECLARE ${1:identifier} : SET OF ${2:type}"
         ],
         "description": "Declare an set."
+    },
+    "Output": {
+        "prefix": [
+            "OUTPUT"
+        ],
+        "body": [
+            "OUTPUT \"${1:expression}\""
+        ],
+        "description": "Output something."
+    },
+    "Call": {
+        "prefix":[
+            "CALL"
+        ],
+        "body": [
+            "CALL ${1:procedure}(${2:arguments})"
+        ],
+        "description": "Call a procedure/function."
+    },
+    "Procedure": {
+        "prefix": [
+            "PROCEDURE"
+        ],
+        "body":[
+            "PROCEDURE ${1:name}(${2:by} ${3:identifier} : ${4:type})",
+            "\t$0",
+            "ENDPROCEDURE"
+        ],
+        "description": "Declare a procedure."
+    },
+    "Function": {
+        "prefix": [
+            "FUNCTION"
+        ],
+        "body":[
+            "FUNCTION ${1:name}(${2:by} ${3:identifier} : ${4:type}) RETURNS ${5:type}",
+            "\t$0",
+            "ENDFUNCTION"
+        ],
+        "description": "Declare a function."
+    },
+    "Open File": {
+        "prefix": [
+            "OPENFILE"
+        ],
+        "body": [
+            "OPENFILE ${1:file path} FOR ${2:mode}"
+        ],
+        "description": "Open a file."
+    },
+    "Read File": {
+        "prefix": [
+            "READFILE"
+        ],
+        "body": [
+            "READFILE ${1:file path}, ${2:identifier}"
+        ],
+        "description": "Read from a file."
+    },
+    "Write File": {
+        "prefix": [
+            "WRITEFILE"
+        ],
+        "body": [
+            "WRITEFILE ${1:file path}, ${2:dater}"
+        ],
+        "description": "Write to a file."
+    },
+    "Close File": {
+        "prefix": [
+            "CLOSEFILE"
+        ],
+        "body": [
+            "CLOSEFILE ${1:file path}"
+        ],
+        "description": "Close a file."
+    },
+    "Seek File": {
+        "prefix": [
+            "SEEK"
+        ],
+        "body": [
+            "SEEK ${1:file path}, ${2:address}"
+        ],
+        "description": "Seek a file."
+    },
+    "Class": {
+        "prefix": [
+            "CLASS"
+        ],
+        "body": [
+            "CLASS ${1:name}",
+            "PUBLIC PROCEDURE ${2:procedure}(${3:by} ${4:identifier} : ${5:type})",
+            "ENDCLASS"
+        ],
+        "description": "Declare a class."
+    },
+    "Right": {
+        "prefix": [
+            "RIGHT"
+        ],
+        "body": [
+            "RIGHT(${1:string}, ${2:length})"
+        ],
+        "description": "Get the right part of a string."
+    },
+    "Length": {
+        "prefix": [
+            "LENGTH"
+        ],
+        "body": [
+            "LENGTH(${1:string})"
+        ],
+        "description": "Get the length of a string."
+    },
+    "Mid": {
+        "prefix": [
+            "MID"
+        ],
+        "body": [
+            "MID(${1:string}, ${2:start}, ${3:length})"
+        ],
+        "description": "Get the middle part of a string."
+    },
+    "Lower Case": {
+        "prefix": [
+            "LCASE"
+        ],
+        "body": [
+            "LCASE(${1:char})"
+        ],
+        "description": "Convert a character to lower case."
+    },
+    "Upper Case": {
+        "prefix": [
+            "UCASE"
+        ],
+        "body": [
+            "UCASE(${1:char})"
+        ],
+        "description": "Convert a character to upper case."
+    },
+    "Change to Integer": {
+        "prefix": [
+            "INT"
+        ],
+        "body": [
+            "INT(${1:real})"
+        ],
+        "description": "Change a real number to an integer."
+    },
+    "Random Real": {
+        "prefix": [
+            "RAND"
+        ],
+        "body": [
+            "RAND(${1:upper int bound})"
+        ],
+        "description": "Generate a random real number in range."
+    },
+    "End of File": {
+        "prefix": [
+            "EOF"
+        ],
+        "body": [
+            "EOF(${1:file path})"
+        ],
+        "description": "Check if the file is at the end."
+    },
+    "Power": {
+        "prefix": [
+            "POW"
+        ],
+        "body": [
+            "POW(${1:base}, ${2:exponent})"
+        ],
+        "description": "Raise a number to a power."
+    },
+    "Exit Code": {
+        "prefix": [
+            "EXIT"
+        ],
+        "body": [
+            "EXIT ${1:code}"
+        ],
+        "description": "Exit the program with a int code."
+    },
+    "Round": {
+        "prefix": [
+            "ROUND"
+        ],
+        "body": [
+            "ROUND(${1:real}, ${2:decimal places})"
+        ],
+        "description": "Round a real number."
+    },
+    "Python": {
+        "prefix": [
+            "PYTHON"
+        ],
+        "body": [
+            "PYTHON (${1:code})"
+        ],
+        "description": "Run python code."
+    },
+    "Import": {
+        "prefix": [
+            "IMPORT"
+        ],
+        "body": [
+            "IMPORT ${1:module}"
+        ],
+        "description": "Import a module."
     }
-
 }
