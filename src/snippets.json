@@ -302,7 +302,7 @@
             "PYTHON"
         ],
         "body": [
-            "PYTHON (${1:code})"
+            "PYTHON(\"${1:code}; _result=${2:result}\", ${3:variables})"
         ],
         "description": "Run python code."
     },
