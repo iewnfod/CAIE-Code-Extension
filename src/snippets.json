@@ -320,8 +320,8 @@
             "IMPORT"
         ],
         "body": [
-            "IMPORT ${1:module}"
+            "CONSTANT ${1:module_name} = Import(\"${2:module_path}\")"
         ],
-        "description": "Import a module."
+        "description": "import module"
     }
 }
