@@ -80,6 +80,14 @@
             "DECLARE ${1:identifier} : SET OF ${2:type}"
         ],
         "description": "Declare an set."
+    },
+    "Import": {
+        "prefix": [
+            "IMPORT"
+        ],
+        "body": [
+            "CONSTANT ${1:module_name} = Import(\"${2:module_path}\")"
+        ],
+        "description": "import module"
     }
-
 }
