@@ -334,5 +334,40 @@
             "Sort(${1:array}, ${2:start index}, ${3:end index})"
         ],
         "description": "Build-in sort function."
+    },
+    "INTEGER": {
+        "prefix": ["INTEGER"],
+        "body": ["INTEGER"],
+        "description": "INTEGER"
+    },
+    "REAL": {
+        "prefix": ["REAL"],
+        "body": ["REAL"],
+        "description": "REAL"
+    },
+    "BOOLEAN": {
+        "prefix": ["BOOLEAN"],
+        "body": ["BOOLEAN"],
+        "description": "BOOLEAN"
+    },
+    "CHAR": {
+        "prefix": ["CHAR"],
+        "body": ["CHAR"],
+        "description": "CHAR"
+    },
+    "STRING": {
+        "prefix": ["STRING"],
+        "body": ["STRING"],
+        "description": "STRING"
+    },
+    "DATE": {
+        "prefix": ["DATE"],
+        "body": ["DATE"],
+        "description": "DATE"
+    },
+    "ARRAY": {
+        "prefix": ["ARRAY"],
+        "body": ["ARRAY"],
+        "description": "ARRAY"
     }
 }
