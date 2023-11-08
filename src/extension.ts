@@ -1,5 +1,8 @@
 const vscode = require('vscode');
 
+let terminal_created = false;
+let terminal;
+
 function activate(context) {
     console.log("Extension activated");
     const interpreterPathConfig = vscode.workspace.getConfiguration("myCpcConfig");
@@ -19,10 +22,12 @@ function activate(context) {
         const editor = vscode.window.activeTextEditor;
         const commandHandler = () => {
             if (editor) {
-                const filePath = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.document.uri.fsPath : undefined;
-                let fileUri = filePath;
-                const decodedFilePath = fileUri ? decodeURI(fileUri) : undefined;
-                const terminal = vscode.window.createTerminal('CPC Interpreter');
+                const filePath = vscode.window.activeTextEditor.document.uri.fsPath;
+                const decodedFilePath = decodeURI(filePath);
+                if (!terminal_created) {
+                    terminal = vscode.window.createTerminal('CPC Interpreter');
+                    terminal_created = true;
+                }
                 saveCurrentFile();
                 terminal.sendText(`${interpreterPath} "${decodedFilePath}"`);
                 terminal.show();
@@ -34,7 +39,10 @@ function activate(context) {
     function registerUpdate(context) {
         const command = 'cpc.update';
         const commandHandler = () => {
-            const terminal = vscode.window.createTerminal('CPC Interpreter');
+            if (!terminal_created) {
+                terminal = vscode.window.createTerminal('CPC Interpreter');
+                terminal_created = true;
+            }
             terminal.sendText(`${interpreterPath} -u`);
             terminal.show();
         };
@@ -44,7 +52,9 @@ function activate(context) {
 }
 
 function deactivate() {
-
+    if (terminal) {
+        terminal.dispose();
+    }
 }
 
 module.exports = {
