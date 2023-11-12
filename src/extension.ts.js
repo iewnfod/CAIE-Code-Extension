@@ -38,7 +38,7 @@ function activate(context) {
         const command = 'cpc.update';
         const commandHandler = () => {
             if (!terminal_created) {
-                terminal = vscode.window.createTerminal('CPC Update');
+                terminal = vscode.window.createTerminal('CPC Config');
                 terminal_created = true;
             }
             devMode();
@@ -59,16 +59,15 @@ function updateBranch() {
     const interpreterPathConfig = myCpcConfig.get("interpreterPath") || "cpc";
     const updateBranchConfig = myCpcConfig.get("updateBranch") || "stable";
     const scriptDir = interpreterPathConfig;
-    console.log("scriptDir: ", scriptDir);
-    const isWindows = process.platform === 'win32';
-    const separator = isWindows ? '\\' : '/';
+    const isWindows = process.platform.startsWith('win');
     if (!terminal_created) {
         terminal = vscode.window.createTerminal('CPC Config');
         terminal_created = true;
     }
-    const gitCheckoutCommand = isWindows ? `git checkout ${updateBranchConfig.replace(/\//g, '\\')}` : `git checkout ${updateBranchConfig}`;
+    const cdCommand = isWindows ? `(Get-Command ${interpreterPathConfig} -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source | Split-Path -Parent | Split-Path -Parent) | Set-Location` : `cd $(which ${interpreterPathConfig})/../..`;
     terminal.sendText(`${interpreterPathConfig} -c branch ${updateBranchConfig}`);
-    terminal.sendText(`cd $(which ${interpreterPathConfig})/../.. && ${gitCheckoutCommand}`);
+    terminal.sendText(`${cdCommand}`);
+    terminal.sendText(`git checkout ${updateBranchConfig}`);
     terminal.show();
 }
 function updateRemote() {
@@ -90,9 +89,6 @@ function devMode() {
     }
     terminal.sendText(`${interpreterPathConfig} -c dev ${devModeConfig}`);
     terminal.show();
-}
-function reloadWindow() {
-    vscode.commands.executeCommand('workbench.action.reloadWindow');
 }
 module.exports = {
     activate,
