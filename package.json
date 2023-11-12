@@ -2,10 +2,10 @@
   "name": "cpc-interpreter-extension",
   "displayName": "CAIE Pseudocode",
   "description": "A VSCode language support extension of CAIE PseudoCode",
-  "version": "0.0.10",
+  "version": "0.1.1",
   "publisher": "CreatechStudioShanghaiInc",
-  "icon": "icon.png",
-  "main": "./src/extension.ts",
+  "icon": "image/icon.png",
+  "main": "src/extension.ts",
   "engines": {
     "vscode": "^1.83.0"
   },
@@ -30,7 +30,11 @@
         "extensions": [
           ".cpc"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./image/cpc.svg",
+          "dark": "./image/cpc.svg"
+        }
       }
     ],
     "grammars": [
@@ -42,10 +46,10 @@
     ],
     "snippets": [
       {
-          "language": "cpc",
-          "path": "./src/snippets.json"
+        "language": "cpc",
+        "path": "./src/snippets.json"
       }
-  ],
+    ],
     "taskDefinitions": [
       {
         "type": "cpc"
@@ -60,7 +64,7 @@
       {
         "command": "cpc.update",
         "title": "Update Runtime Support",
-        "icon": "$(update)"
+        "icon": "$(sync)"
       }
     ],
     "keybindings": [
@@ -84,6 +88,13 @@
           "group": "navigation",
           "when": "resourceLangId == cpc"
         }
+      ],
+      "editor/title": [
+        {
+          "command": "cpc.update",
+          "group": "navigation",
+          "when": "resourceLangId == cpc"
+        }
       ]
     },
     "configuration": [
@@ -94,7 +105,23 @@
           "myCpcConfig.interpreterPath": {
             "type": "string",
             "default": "cpc",
-            "description": "Path to the CPC interpreter, Please reboot VSCode after changing this setting."
+            "description": "Path to the CPC interpreter. Restart after edit."
+          },
+          "myCpcConfig.updateBranch": {
+            "type": "string",
+            "enum": ["dev", "nightly", "stable"],
+            "default": "stable",
+            "description": "Select CPC update branch. Restart after edit."
+          },
+          "myCpcConfig.updateRemote": {
+            "type": "string",
+            "enum": ["github", "gitee"],
+            "default": "github",
+            "description": "Select CPC update remote repository. Restart after edit."
+          },
+          "myCpcConfig.devMode": {
+            "type": "boolean",
+            "description": "Enable CPC dev mode, which will enable some experimental features. Restart after edit."
           }
         }
       }
@@ -104,8 +131,7 @@
     "fs": "^0.0.1-security",
     "micromatch": "^4.0.5",
     "os": "^0.1.2",
-    "path": "^0.12.7",
-    "vscode-languageclient": "^9.0.1"
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@types/node": "^20.8.10",
