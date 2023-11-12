@@ -2,7 +2,7 @@
   "name": "cpc-interpreter-extension",
   "displayName": "CAIE Pseudocode",
   "description": "A VSCode language support extension of CAIE PseudoCode",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "CreatechStudioShanghaiInc",
   "icon": "image/icon.png",
   "main": "src/extension.ts",
@@ -64,7 +64,7 @@
       {
         "command": "cpc.update",
         "title": "Update Runtime Support",
-        "icon": "$(sync)"
+        "icon": "$(cloud-upload)"
       }
     ],
     "keybindings": [
