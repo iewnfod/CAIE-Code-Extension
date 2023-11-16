@@ -165,7 +165,7 @@
             "WRITEFILE"
         ],
         "body": [
-            "WRITEFILE ${1:file path}, ${2:dater}"
+            "WRITEFILE ${1:file path}, ${2:data}"
         ],
         "description": "Write to a file."
     },
