@@ -4,9 +4,9 @@
             "FOR"
         ],
         "body": [
-            "FOR ${3:element} <- ${1:start} TO ${2:end}",
+            "FOR ${1:element} <- ${2:start} TO ${3:end}",
             "\t$0",
-            "NEXT $3"
+            "NEXT $1"
         ],
         "description": "A for loop."
     },
@@ -26,9 +26,9 @@
             "FORSTEP"
         ],
         "body": [
-            "FOR ${4:element} <- ${1:start} TO ${2:end} STEP ${3:step}",
+            "FOR ${1:element} <- ${2:start} TO ${3:end} STEP ${4:step}",
             "\t$0",
-            "NEXT $4"
+            "NEXT $1"
         ],
         "description": "A for loop with step."
     },
@@ -107,9 +107,18 @@
             "OUTPUT"
         ],
         "body": [
-            "OUTPUT \"${1:expression}\""
+            "OUTPUT ${1:expression}"
         ],
         "description": "Output something."
+    },
+    "Input": {
+        "prefix": [
+            "INPUT"
+        ],
+        "body": [
+            "INTPUT ${1:identifier}"
+        ],
+        "description": "Input something."
     },
     "Call": {
         "prefix":[
