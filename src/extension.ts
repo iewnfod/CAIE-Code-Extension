@@ -5,6 +5,7 @@ const fs = require('fs');
 let run_terminal_created = false;
 let config_terminal_created = false;
 let terminal;
+let interpreterCloseListener;
 const myCpcConfig = vscode.workspace.getConfiguration("myCpcConfig");
 
 function saveCurrentFile() {
@@ -54,11 +55,30 @@ function devMode() {
     terminal.show();
 }
 
+function registerInterpreterCloseEvent() {
+    vscode.window.onDidCloseTerminal((closedTerminal) => {
+        if (closedTerminal.name === 'CPC Interpreter') {
+            run_terminal_created = false;
+        }
+        if (closedTerminal.name === 'CPC Config') {
+            config_terminal_created = false;
+        }
+    });
+}
+
+function disposeInterpreterCloseEvent() {
+    if (interpreterCloseListener) {
+        interpreterCloseListener.dispose();
+        interpreterCloseListener = undefined;
+    }
+}
+
 function activate(context) {
     const interpreterPathConfig = myCpcConfig.get("interpreterPath") || "cpc";
 
     executeCurrentFile(context);
     registerUpdate(context);
+    registerInterpreterCloseEvent();
 
     function executeCurrentFile(context) {
         const command = 'cpc.run';
@@ -100,6 +120,7 @@ function deactivate() {
     if (terminal) {
         terminal.dispose();
     }
+    disposeInterpreterCloseEvent();
 }
 
 module.exports = {
