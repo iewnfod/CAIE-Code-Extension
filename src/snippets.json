@@ -207,6 +207,15 @@
         ],
         "description": "Declare a class."
     },
+    "Left": {
+        "prefix": [
+            "LEFT"
+        ],
+        "body": [
+            "LEFT(${1:string}, ${2:length})"
+        ],
+        "description": "Get the left part of a string."
+    },
     "Right": {
         "prefix": [
             "RIGHT"
