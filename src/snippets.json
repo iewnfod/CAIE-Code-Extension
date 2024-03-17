@@ -116,7 +116,7 @@
             "INPUT"
         ],
         "body": [
-            "INTPUT ${1:identifier}"
+            "INPUT ${1:identifier}"
         ],
         "description": "Input something."
     },
