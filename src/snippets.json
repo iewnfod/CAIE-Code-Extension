@@ -245,19 +245,19 @@
     },
     "Lower Case": {
         "prefix": [
-            "LCASE"
+            "TO_LOWER"
         ],
         "body": [
-            "LCASE(${1:char})"
+            "TO_LOWER(${1:char})"
         ],
         "description": "Convert a character to lower case."
     },
     "Upper Case": {
         "prefix": [
-            "UCASE"
+            "TO_UPPER"
         ],
         "body": [
-            "UCASE(${1:char})"
+            "TO_UPPER(${1:char})"
         ],
         "description": "Convert a character to upper case."
     },
