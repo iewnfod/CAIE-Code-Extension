@@ -1,5 +1,5 @@
 {
-    "For Loop": {
+    "For Loop AL": {
         "prefix": [
             "FOR"
         ],
@@ -8,7 +8,18 @@
             "\t$0",
             "NEXT $1"
         ],
-        "description": "A for loop."
+        "description": "A FOR loop. (A(S) Level)"
+    },
+    "For Loop IG": {
+        "prefix": [
+            "FOR"
+        ],
+        "body": [
+            "FOR ${1:element} <- ${2:start} TO ${3:end}",
+            "\t$0",
+            "NEXT"
+        ],
+        "description": "A FOR loop. (IGCSE)"
     },
     "If": {
         "prefix": [
@@ -21,7 +32,7 @@
         ],
         "description": "An if statement"
     },
-    "For Loop With Step": {
+    "For Loop With Step AL": {
         "prefix": [
             "FORSTEP"
         ],
@@ -30,14 +41,25 @@
             "\t$0",
             "NEXT $1"
         ],
-        "description": "A for loop with step."
+        "description": "A for loop with step. (A(S) Level)"
+    },
+    "For Loop With Step IG": {
+        "prefix": [
+            "FORSTEP"
+        ],
+        "body": [
+            "FOR ${1:element} <- ${2:start} TO ${3:end} STEP ${4:step}",
+            "\t$0",
+            "NEXT"
+        ],
+        "description": "A for loop with step. (IGCSE)"
     },
     "While": {
         "prefix": [
             "WHILE"
         ],
         "body": [
-            "WHILE ${1:condition} DO",
+            "WHILE ${1:condition}",
             "\t$0",
             "ENDWHILE"
         ],
